@@ -1,0 +1,1141 @@
+[
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoAF",
+        "college": "College of Agricultural Sciences and Food Technology",
+        "courseAbbr": "BSc Agric Econ & Bus",
+        "course": "Bachelor of Science in Agricultural Economics and Business",
+        "required_combinations": [
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "CBA", "long": "Commerce, Bookkeeping, Accountancy"},
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Economics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "D"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoAF",
+        "college": "College of Agricultural Sciences and Food Technology",
+        "courseAbbr": "BSc Agric Eng",
+        "course": "Bachelor of Science in Agricultural Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoAF",
+        "college": "College of Agricultural Sciences and Food Technology",
+        "courseAbbr": "BSc Crop Sci & Beekeeping",
+        "course": "Bachelor of Science in Crop Sciences and Beekeeping Technology",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Biology", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoAF",
+        "college": "College of Agricultural Sciences and Food Technology",
+        "courseAbbr": "BSc Food Sci & Tech",
+        "course": "Bachelor of Science in Food Science and Technology",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Chemistry", "grade": "C"},
+            {"subject": "Biology", "grade": "D"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoET",
+        "college": "College of Engineering and Technology",
+        "courseAbbr": "BSc Civil Eng",
+        "course": "Bachelor of Science in Civil Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoET",
+        "college": "College of Engineering and Technology",
+        "courseAbbr": "BSc Electrical Eng",
+        "course": "Bachelor of Science in Electrical Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoET",
+        "college": "College of Engineering and Technology",
+        "courseAbbr": "BSc Chem & Proc Eng",
+        "course": "Bachelor of Science in Chemical and Process Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Chemistry", "grade": "C"},
+            {"subject": "Physics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoET",
+        "college": "College of Engineering and Technology",
+        "courseAbbr": "BSc Mech & Ind Eng",
+        "course": "Bachelor of Science in Mechanical and Industrial Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoHU",
+        "college": "College of Humanities",
+        "courseAbbr": "BA Creative Arts",
+        "course": "Bachelor of Arts in Creative Arts",
+        "required_combinations": [
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoHU",
+        "college": "College of Humanities",
+        "courseAbbr": "BA Lang & Ling",
+        "course": "Bachelor of Arts in Foreign Languages and Linguistics",
+        "required_combinations": [
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Kiswahili", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoICT",
+        "college": "College of Information and Communication Technologies",
+        "courseAbbr": "BSc Comp Sci",
+        "course": "Bachelor of Science in Computer Science",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PGM", "long": "Physics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"},
+            {"subject": "Physics", "grade": "D"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoICT",
+        "college": "College of Information and Communication Technologies",
+        "courseAbbr": "BSc Elec & Telecomm Eng",
+        "course": "Bachelor of Science in Electronics and Telecommunications Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoNAS",
+        "college": "College of Natural and Applied Sciences",
+        "courseAbbr": "BSc Botany",
+        "course": "Bachelor of Science in Botany",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Biology", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoNAS",
+        "college": "College of Natural and Applied Sciences",
+        "courseAbbr": "BSc Chemistry",
+        "course": "Bachelor of Science in Chemistry",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"}
+        ],
+        "minimum_points": 4,
+        "specific_require specific_requirements": [
+            {"subject": "Chemistry", "grade": "C"},
+            {"subject": "Physics", "grade": "D"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoNAS",
+        "college": "College of Natural and Applied Sciences",
+        "courseAbbr": "BSc Petroleum Chem",
+        "course": "Bachelor of Science in Petroleum Chemistry",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Chemistry", "grade": "C"},
+            {"subject": "Physics", "grade": "D"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoNAS",
+        "college": "College of Natural and Applied Sciences",
+        "courseAbbr": "BSc Mathematics",
+        "course": "Bachelor of Science in Mathematics",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PGM", "long": "Physics, Geography, Mathematics"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoNAS",
+        "college": "College of Natural and Applied Sciences",
+        "courseAbbr": "BSc Mol Bio & Biotech",
+        "course": "Bachelor of Science in Molecular Biology and Biotechnology",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Biology", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoNAS",
+        "college": "College of Natural and Applied Sciences",
+        "courseAbbr": "BSc Physics",
+        "course": "Bachelor of Science in Physics",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoNAS",
+        "college": "College of Natural and Applied Sciences",
+        "courseAbbr": "BSc Zoo & Wildlife Cons",
+        "course": "Bachelor of Science in Zoology and Wildlife Conservation",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Biology", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoSS",
+        "college": "College of Social Sciences",
+        "courseAbbr": "BA Geography",
+        "course": "Bachelor of Arts in Geography",
+        "required_combinations": [
+            {"short": "HGE", "long": "History, Geography, Economics"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Geography", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoSS",
+        "college": "College of Social Sciences",
+        "courseAbbr": "BA Pol Sci & Pub Admin",
+        "course": "Bachelor of Arts in Political Science and Public Administration",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoSS",
+        "college": "College of Social Sciences",
+        "courseAbbr": "BA Sociology",
+        "course": "Bachelor of Arts in Sociology and Anthropology",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "CoSS",
+        "college": "College of Social Sciences",
+        "courseAbbr": "BA Statistics",
+        "course": "Bachelor of Arts in Statistics",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "PGM", "long": "Physics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "SoAF",
+        "college": "School of Aquatic Sciences and Fisheries Technology",
+        "courseAbbr": "BSc Aquatic Sci & Fisheries",
+        "course": "Bachelor of Science in Aquatic Sciences and Fisheries Technology",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Biology", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "UDBS",
+        "college": "University of Dar es Salaam Business School",
+        "courseAbbr": "BCom Accounting",
+        "course": "Bachelor of Commerce in Accounting",
+        "required_combinations": [
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "CBA", "long": "Commerce, Bookkeeping, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Accountancy", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "UDBS",
+        "college": "University of Dar es Salaam Business School",
+        "courseAbbr": "BCom Finance",
+        "course": "Bachelor of Commerce in Finance",
+        "required_combinations": [
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "CBA", "long": "Commerce, Bookkeeping, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Economics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "UDBS",
+        "college": "University of Dar es Salaam Business School",
+        "courseAbbr": "BCom Marketing",
+        "course": "Bachelor of Commerce in Marketing",
+        "required_combinations": [
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "CBA", "long": "Commerce, Bookkeeping, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Economics", "grade": "C"},
+            {"subject": "Commerce", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "UDBS",
+        "college": "University of Dar es Salaam Business School",
+        "courseAbbr": "BCom Gen Mgt",
+        "course": "Bachelor of Commerce in General Management",
+        "required_combinations": [
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "CBA", "long": "Commerce, Bookkeeping, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Economics", "grade": "C"},
+            {"subject": "Commerce", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "SoED",
+        "college": "School of Education",
+        "courseAbbr": "BEd",
+        "course": "Bachelor of Education",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "UDSM-MCHAS",
+        "college": "University of Dar es Salaam Mbeya College of Health and Allied Sciences",
+        "courseAbbr": "MD",
+        "course": "Doctor of Medicine",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"}
+        ],
+        "minimum_points": 6,
+        "specific_requirements": [
+            {"subject": "Biology", "grade": "B"},
+            {"subject": "Chemistry", "grade": "B"},
+            {"subject": "Physics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "UDSOL",
+        "college": "University of Dar es Salaam School of Law",
+        "courseAbbr": "LLB",
+        "course": "Bachelor of Laws",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "UDSE",
+        "college": "University of Dar es Salaam School of Economics",
+        "courseAbbr": "BA Economics",
+        "course": "Bachelor of Arts in Economics",
+        "required_combinations": [
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Economics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "D"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "SJMC",
+        "college": "School of Journalism and Mass Communication",
+        "courseAbbr": "BA Journ & Mass Comm",
+        "course": "Bachelor of Arts in Journalism and Mass Communication",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "IDS",
+        "college": "Institute of Development Studies",
+        "courseAbbr": "BA Dev Studies",
+        "course": "Bachelor of Arts in Development Studies",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HGE", "long": "History, Geography, Economics"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Geography", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "IKS",
+        "college": "Institute of Kiswahili Studies",
+        "courseAbbr": "BA Kiswahili",
+        "course": "Bachelor of Arts in Kiswahili",
+        "required_combinations": [
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Kiswahili", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "IMS",
+        "college": "Institute of Marine Sciences",
+        "courseAbbr": "BSc Marine Sci",
+        "course": "Bachelor of Science in Marine Sciences",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Biology", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "SoMG",
+        "college": "School of Mines and Geosciences",
+        "courseAbbr": "BSc Geol",
+        "course": "Bachelor of Science in Geology",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "SoMG",
+        "college": "School of Mines and Geosciences",
+        "courseAbbr": "BSc Min Eng",
+        "course": "Bachelor of Science in Mining Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "SoMG",
+        "college": "School of Mines and Geosciences",
+        "courseAbbr": "BSc Petroleum Eng",
+        "course": "Bachelor of Science in Petroleum Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "UDSM-MRI",
+        "college": "University of Dar es Salaam Mineral Resources Institute",
+        "courseAbbr": "BSc Min Proc Eng",
+        "course": "Bachelor of Science in Mining and Mineral Processing Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "DUCE",
+        "college": "Dar es Salaam University College of Education",
+        "courseAbbr": "BA Ed",
+        "course": "Bachelor of Arts with Education",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "DUCE",
+        "college": "Dar es Salaam University College of Education",
+        "courseAbbr": "BEd Arts",
+        "course": "Bachelor of Education in Arts",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "DUCE",
+        "college": "Dar es Salaam University College of Education",
+        "courseAbbr": "BEd Sci",
+        "course": "Bachelor of Education in Science",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "MUCE",
+        "college": "Mkwawa University College of Education",
+        "courseAbbr": "BEd Arts",
+        "course": "Bachelor of Education in Arts",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "MUCE",
+        "college": "Mkwawa University College of Education",
+        "courseAbbr": "BEd Sci",
+        "course": "Bachelor of Education in Science",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "MUCE",
+        "college": "Mkwawa University College of Education",
+        "courseAbbr": "BA Ed",
+        "course": "Bachelor of Arts with Education",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "History", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "MUCE",
+        "college": "Mkwawa University College of Education",
+        "courseAbbr": "BSc Ed",
+        "course": "Bachelor of Science with Education",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Physics", "grade": "C"},
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDSM",
+        "university": "University of Dar es Salaam",
+        "collegeAbbr": "MUCE",
+        "college": "Mkwawa University College of Education",
+        "courseAbbr": "BSc Chem",
+        "course": "Bachelor of Science in Chemistry",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Chemistry", "grade": "C"},
+            {"subject": "Physics", "grade": "D"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "COBE",
+        "college": "College of Business and Economics",
+        "courseAbbr": "BCom Accounting",
+        "course": "Bachelor of Commerce in Accounting",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"},
+            {"subject": "Accountancy", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "COBE",
+        "college": "College of Business and Economics",
+        "courseAbbr": "BCom Procurement",
+        "course": "Bachelor of Commerce in Procurement and Logistics Management",
+        "required_combinations": [
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CHAS",
+        "college": "College of Health and Allied Sciences",
+        "courseAbbr": "BSc Nursing",
+        "course": "Bachelor of Science in Nursing",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBN", "long": "Chemistry, Biology, Nutrition"}
+        ],
+        "minimum_points": 6,
+        "specific_requirements": [
+            {"subject": "Chemistry", "grade": "C"},
+            {"subject": "Biology", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CHAS",
+        "college": "College of Health and Allied Sciences",
+        "courseAbbr": "MD",
+        "course": "Doctor of Medicine",
+        "required_combinations": [
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"}
+        ],
+        "minimum_points": 8,
+        "specific_requirements": [
+            {"subject": "Chemistry", "grade": "C"},
+            {"subject": "Biology", "grade": "C"},
+            {"subject": "Physics", "grade": "D"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CLGS",
+        "college": "College of Law and Governance Studies",
+        "courseAbbr": "LLB",
+        "course": "Bachelor of Laws",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "English", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CIVE",
+        "college": "College of Informatics and Virtual Education",
+        "courseAbbr": "BSc CS",
+        "course": "Bachelor of Science in Computer Science",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PGM", "long": "Physics, Geography, Mathematics"},
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"},
+            {"subject": "Physics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CNMS",
+        "college": "College of Natural and Mathematical Sciences",
+        "courseAbbr": "BSc Maths",
+        "course": "Bachelor of Science in Mathematics",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PGM", "long": "Physics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CED",
+        "college": "College of Education",
+        "courseAbbr": "BSc Ed",
+        "course": "Bachelor of Science with Education",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "CBG", "long": "Chemistry, Biology, Geography"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CED",
+        "college": "College of Education",
+        "courseAbbr": "BA Ed",
+        "course": "Bachelor of Arts with Education",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"},
+            {"short": "KLF", "long": "Kiswahili, Language, French"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "English", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CHSS",
+        "college": "College of Humanities and Social Sciences",
+        "courseAbbr": "BA Economics",
+        "course": "Bachelor of Arts in Economics",
+        "required_combinations": [
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CHSS",
+        "college": "College of Humanities and Social Sciences",
+        "courseAbbr": "BA Sociology",
+        "course": "Bachelor of Arts in Sociology",
+        "required_combinations": [
+            {"short": "HGL", "long": "History, Geography, Language"},
+            {"short": "HKL", "long": "History, Kiswahili, Language"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "English", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CIVE",
+        "college": "College of Informatics and Virtual Education",
+        "courseAbbr": "BSc IT",
+        "course": "Bachelor of Science in Information Technology",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PGM", "long": "Physics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CIVE",
+        "college": "College of Informatics and Virtual Education",
+        "courseAbbr": "BSc Telecom",
+        "course": "Bachelor of Science in Telecommunications Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"},
+            {"subject": "Physics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CESE",
+        "college": "College of Earth Sciences and Engineering",
+        "courseAbbr": "BSc Mining",
+        "course": "Bachelor of Science in Mining Engineering",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"},
+            {"subject": "Physics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "CESE",
+        "college": "College of Earth Sciences and Engineering",
+        "courseAbbr": "BSc Geology",
+        "course": "Bachelor of Science in Geology",
+        "required_combinations": [
+            {"short": "PCM", "long": "Physics, Chemistry, Mathematics"},
+            {"short": "PCB", "long": "Physics, Chemistry, Biology"},
+            {"short": "PGM", "long": "Physics, Geography, Mathematics"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Chemistry", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    },
+    {
+        "universityAbbr": "UDOM",
+        "university": "The University of Dodoma",
+        "collegeAbbr": "COBE",
+        "college": "College of Business and Economics",
+        "courseAbbr": "BBA",
+        "course": "Bachelor of Business Administration",
+        "required_combinations": [
+            {"short": "EGM", "long": "Economics, Geography, Mathematics"},
+            {"short": "ECA", "long": "Economics, Commerce, Accountancy"}
+        ],
+        "minimum_points": 4,
+        "specific_requirements": [
+            {"subject": "Mathematics", "grade": "C"}
+        ],
+        "grade_scale": "A=5, B=4, C=3, D=2, E=1"
+    }
+]
