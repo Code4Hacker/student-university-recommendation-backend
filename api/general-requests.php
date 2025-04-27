@@ -1,34 +1,5 @@
 <?php
-header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST");
-header("Access-Control-Allow-Headers: Content-Type");
-
-
-class Database
-{
-    private $host = "localhost";
-    private $db_name = "UniversityCourses";
-    private $username = "root";
-    private $password = "";
-    public $conn;
-
-    public function getConnection()
-    {
-        $this->conn = null;
-        try {
-            $this->conn = new PDO(
-                "mysql:host=" . $this->host . ";dbname=" . $this->db_name,
-                $this->username,
-                $this->password
-            );
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo json_encode(["error" => "Connection failed: " . $e->getMessage()]);
-        }
-        return $this->conn;
-    }
-}
+require_once "./connection-class.php";
 
 class StudentAPI
 {
@@ -274,42 +245,40 @@ class StudentAPI
             ]);
         }
     }
-
-    private function isStudentEligible($studentSubjects, $course, $filter = 'default')
-    {
+    private function isStudentEligible($studentSubjects, $course) {
         $gradePoints = ['A' => 5, 'B' => 4, 'C' => 3, 'D' => 2, 'E' => 1];
         $studentPoints = 0;
         $studentSubjectList = [];
-        $matchScore = 0; 
-
+        $matchScore = 0;
+        
         foreach ($studentSubjects as $subject) {
             $studentPoints += $gradePoints[$subject['grade']] ?? 0;
             $studentSubjectList[$subject['subject']] = $subject['grade'];
         }
-
+    
         if ($studentPoints < $course['minimum_points']) {
             return ['eligible' => false, 'match_score' => 0];
         }
-
+    
         $allRequirementsMet = true;
         $specificRequirementsMet = 0;
         $totalRequirements = 0;
-
+    
         if ($course['requirements']) {
             $requirements = explode(',', $course['requirements']);
             $totalRequirements = count($requirements);
-
+            
             foreach ($requirements as $req) {
-                [$subject, $minGrade] = explode(':', $req);
-                $studentGrade = $studentSubjectList[$subject] ?? null;
-
+                [$requiredSubject, $minGrade] = explode(':', $req);
+                $studentGrade = $studentSubjectList[$requiredSubject] ?? null;
+                
                 if ($studentGrade) {
-                    $studentGradePoints = $gradePoints[$studentGrade] ?? 0;
-                    $minGradePoints = $gradePoints[$minGrade] ?? 0;
-
-                    if ($studentGradePoints >= $minGradePoints) {
+                    $studentGradeValue = $gradePoints[$studentGrade] ?? 0;
+                    $minGradeValue = $gradePoints[$minGrade] ?? 0;
+                    
+                    if ($studentGradeValue >= $minGradeValue) {
                         $specificRequirementsMet++;
-                        $matchScore += ($studentGradePoints - $minGradePoints + 1); 
+                        $matchScore += ($studentGradeValue - $minGradeValue + 1);
                     } else {
                         $allRequirementsMet = false;
                     }
@@ -318,29 +287,78 @@ class StudentAPI
                 }
             }
         }
-
-        $eligible = $allRequirementsMet;
-
-        if ($filter === 'strict') {
-            $eligible = $allRequirementsMet && ($specificRequirementsMet === $totalRequirements);
-        } elseif ($filter === 'custom') {
-            $hasBetterGrade = false;
-            foreach ($requirements as $req) {
-                [$subject, $minGrade] = explode(':', $req);
-                $studentGrade = $studentSubjectList[$subject] ?? null;
-                if ($studentGrade && ($gradePoints[$studentGrade] > $gradePoints[$minGrade])) {
-                    $hasBetterGrade = true;
-                    break;
-                }
-            }
-            $eligible = $allRequirementsMet && $hasBetterGrade;
-        }
-
+    
         return [
-            'eligible' => $eligible,
+            'eligible' => $allRequirementsMet,
             'match_score' => $matchScore
         ];
     }
+    // private function isStudentEligible($studentSubjects, $course, $filter = 'default')
+    // {
+    //     $gradePoints = ['A' => 5, 'B' => 4, 'C' => 3, 'D' => 2, 'E' => 1];
+    //     $studentPoints = 0;
+    //     $studentSubjectList = [];
+    //     $matchScore = 0; 
+
+    //     foreach ($studentSubjects as $subject) {
+    //         $studentPoints += $gradePoints[$subject['grade']] ?? 0;
+    //         $studentSubjectList[$subject['subject']] = $subject['grade'];
+    //     }
+
+    //     if ($studentPoints < $course['minimum_points']) {
+    //         return ['eligible' => false, 'match_score' => 0];
+    //     }
+
+    //     $allRequirementsMet = true;
+    //     $specificRequirementsMet = 0;
+    //     $totalRequirements = 0;
+
+    //     if ($course['requirements']) {
+    //         $requirements = explode(',', $course['requirements']);
+    //         $totalRequirements = count($requirements);
+
+    //         foreach ($requirements as $req) {
+    //             [$subject, $minGrade] = explode(':', $req);
+    //             $studentGrade = $studentSubjectList[$subject] ?? null;
+
+    //             if ($studentGrade) {
+    //                 $studentGradePoints = $gradePoints[$studentGrade] ?? 0;
+    //                 $minGradePoints = $gradePoints[$minGrade] ?? 0;
+
+    //                 if ($studentGradePoints >= $minGradePoints) {
+    //                     $specificRequirementsMet++;
+    //                     $matchScore += ($studentGradePoints - $minGradePoints + 1); 
+    //                 } else {
+    //                     $allRequirementsMet = false;
+    //                 }
+    //             } else {
+    //                 $allRequirementsMet = false;
+    //             }
+    //         }
+    //     }
+
+    //     $eligible = $allRequirementsMet;
+
+    //     if ($filter === 'strict') {
+    //         $eligible = $allRequirementsMet && ($specificRequirementsMet === $totalRequirements);
+    //     } elseif ($filter === 'custom') {
+    //         $hasBetterGrade = false;
+    //         foreach ($requirements as $req) {
+    //             [$subject, $minGrade] = explode(':', $req);
+    //             $studentGrade = $studentSubjectList[$subject] ?? null;
+    //             if ($studentGrade && ($gradePoints[$studentGrade] > $gradePoints[$minGrade])) {
+    //                 $hasBetterGrade = true;
+    //                 break;
+    //             }
+    //         }
+    //         $eligible = $allRequirementsMet && $hasBetterGrade;
+    //     }
+
+    //     return [
+    //         'eligible' => $eligible,
+    //         'match_score' => $matchScore
+    //     ];
+    // }
     public function getCustomEligibleCourses($subjectsData, $page = 1, $per_page = 10) {
         try {
             $offset = ($page - 1) * $per_page;
