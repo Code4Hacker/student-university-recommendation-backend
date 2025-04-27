@@ -114,127 +114,90 @@ class StudentAPI
             ]);
         }
     }
-
-
-
-    public function getEligibleCourses($student_id, $filter = 'default', $page = 1, $per_page = 10)
-    {
+    public function getEligibleCourses($student_id, $filter = 'default', $page = 1, $per_page = 10) {
         try {
             $offset = ($page - 1) * $per_page;
-
-            $studentSubjects = [];
-            if ($filter !== 'default') {
-                $subjectQuery = "SELECT subject, grade FROM StudentSubjects WHERE student_id = :student_id";
-                $subjectStmt = $this->db->prepare($subjectQuery);
-                $subjectStmt->execute([':student_id' => $student_id]);
-                $studentSubjects = $subjectStmt->fetchAll(PDO::FETCH_ASSOC);
-            }
-
+    
+            $subjectQuery = "SELECT subject, grade FROM StudentSubjects WHERE student_id = :student_id";
+            $subjectStmt = $this->db->prepare($subjectQuery);
+            $subjectStmt->execute([':student_id' => $student_id]);
+            $studentSubjects = $subjectStmt->fetchAll(PDO::FETCH_ASSOC);
+    
             $countQuery = "SELECT COUNT(*) as total FROM Courses";
             $countStmt = $this->db->prepare($countQuery);
             $countStmt->execute();
             $totalCourses = $countStmt->fetch(PDO::FETCH_ASSOC)['total'];
-
-            $courseQuery = "
-                SELECT 
-                    c.courseAbbr,
-                    c.courseName,
-                    c.collegeAbbr,
-                    c.minimum_points,
-                    c.grade_scale,
-                    u.universityAbbr,
-                    u.universityName,
-                    GROUP_CONCAT(DISTINCT CONCAT(rc.combination_short, ':', rc.combination_long)) as combinations,
-                    GROUP_CONCAT(DISTINCT CONCAT(sr.subject, ':', sr.grade)) as requirements
-                FROM Courses c
-                JOIN Colleges cl ON c.collegeAbbr = cl.collegeAbbr
-                JOIN Universities u ON cl.universityAbbr = u.universityAbbr
-                LEFT JOIN RequiredCombinations rc ON c.courseAbbr = rc.courseAbbr
-                LEFT JOIN SpecificRequirements sr ON c.courseAbbr = sr.courseAbbr
-                GROUP BY c.courseAbbr
-                LIMIT :limit OFFSET :offset";
-
+    
+            $courseQuery = "SELECT 
+            c.courseAbbr,
+            c.courseName,
+            c.collegeAbbr,
+            c.minimum_points,
+            c.grade_scale,
+            u.universityAbbr,
+            u.universityName,
+            GROUP_CONCAT(DISTINCT CONCAT(rc.combination_short, ':', rc.combination_long)) as combinations,
+            GROUP_CONCAT(DISTINCT CONCAT(sr.subject, ':', sr.grade)) as requirements
+            FROM Courses c
+            JOIN Colleges cl ON c.collegeAbbr = cl.collegeAbbr
+            JOIN Universities u ON cl.universityAbbr = u.universityAbbr
+            LEFT JOIN RequiredCombinations rc ON c.courseAbbr = rc.courseAbbr
+            LEFT JOIN SpecificRequirements sr ON c.courseAbbr = sr.courseAbbr
+            GROUP BY c.courseAbbr
+            LIMIT :limit OFFSET :offset";
             $courseStmt = $this->db->prepare($courseQuery);
-            $courseStmt->bindValue(':limit', (int) $per_page, PDO::PARAM_INT);
-            $courseStmt->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
+            $courseStmt->bindValue(':limit', (int)$per_page, PDO::PARAM_INT);
+            $courseStmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
             $courseStmt->execute();
             $courses = $courseStmt->fetchAll(PDO::FETCH_ASSOC);
-
-            $eligibleCourses = [];
+    
+            $resultCourses = [];
             foreach ($courses as $course) {
-                if ($filter === 'default') {
-                    $combinations = [];
-                    if ($course['combinations']) {
-                        foreach (explode(',', $course['combinations']) as $comb) {
-                            [$short, $long] = explode(':', $comb);
-                            $combinations[] = ['short' => $short, 'long' => $long];
-                        }
-                    }
-
-                    $requirements = [];
-                    if ($course['requirements']) {
-                        foreach (explode(',', $course['requirements']) as $req) {
-                            [$subject, $grade] = explode(':', $req);
-                            $requirements[] = ['subject' => $subject, 'grade' => $grade];
-                        }
-                    }
-
-                    $eligibleCourses[] = [
-                        'universityAbbr' => $course['universityAbbr'],
-                        'university' => $course['universityName'],
-                        'collegeAbbr' => $course['collegeAbbr'],
-                        'courseAbbr' => $course['courseAbbr'],
-                        'course' => $course['courseName'],
-                        'required_combinations' => $combinations,
-                        'minimum_points' => $course['minimum_points'],
-                        'specific_requirements' => $requirements,
-                        'grade_scale' => $course['grade_scale'],
-                        'match_score' => 0
-                    ];
-                } else {
-                    $eligibilityResult = $this->isStudentEligible($studentSubjects, $course, $filter);
-                    if ($eligibilityResult['eligible']) {
-                        $combinations = [];
-                        if ($course['combinations']) {
-                            foreach (explode(',', $course['combinations']) as $comb) {
-                                [$short, $long] = explode(':', $comb);
-                                $combinations[] = ['short' => $short, 'long' => $long];
-                            }
-                        }
-
-                        $requirements = [];
-                        if ($course['requirements']) {
-                            foreach (explode(',', $course['requirements']) as $req) {
-                                [$subject, $grade] = explode(':', $req);
-                                $requirements[] = ['subject' => $subject, 'grade' => $grade];
-                            }
-                        }
-
-                        $eligibleCourses[] = [
-                            'universityAbbr' => $course['universityAbbr'],
-                            'university' => $course['universityName'],
-                            'collegeAbbr' => $course['collegeAbbr'],
-                            'courseAbbr' => $course['courseAbbr'],
-                            'course' => $course['courseName'],
-                            'required_combinations' => $combinations,
-                            'minimum_points' => $course['minimum_points'],
-                            'specific_requirements' => $requirements,
-                            'grade_scale' => $course['grade_scale'],
-                            'match_score' => $eligibilityResult['match_score']
-                        ];
+                $eligibility = $this->isStudentEligible($studentSubjects, $course);
+                
+                $combinations = [];
+                if ($course['combinations']) {
+                    foreach (explode(',', $course['combinations']) as $comb) {
+                        [$short, $long] = explode(':', $comb);
+                        $combinations[] = ['short' => $short, 'long' => $long];
                     }
                 }
+    
+                $requirements = [];
+                if ($course['requirements']) {
+                    foreach (explode(',', $course['requirements']) as $req) {
+                        [$subject, $grade] = explode(':', $req);
+                        $requirements[] = ['subject' => $subject, 'grade' => $grade];
+                    }
+                }
+    
+                $courseData = [
+                    'universityAbbr' => $course['universityAbbr'],
+                    'university' => $course['universityName'],
+                    'collegeAbbr' => $course['collegeAbbr'],
+                    'courseAbbr' => $course['courseAbbr'],
+                    'course' => $course['courseName'],
+                    'required_combinations' => $combinations,
+                    'minimum_points' => $course['minimum_points'],
+                    'specific_requirements' => $requirements,
+                    'grade_scale' => $course['grade_scale'],
+                    'eligible' => $eligibility['eligible'],
+                    'match_score' => $eligibility['match_score']
+                ];
+    
+                if ($filter === 'grades' && !$eligibility['eligible']) continue;
+                
+                $resultCourses[] = $courseData;
             }
-
+    
             $total_pages = ceil($totalCourses / $per_page);
-
             return json_encode([
                 "success" => true,
-                "courses" => $eligibleCourses,
+                "courses" => $resultCourses,
                 "pagination" => [
-                    "total" => (int) $totalCourses,
-                    "per_page" => (int) $per_page,
-                    "current_page" => (int) $page,
+                    "total" => (int)$totalCourses,
+                    "per_page" => (int)$per_page,
+                    "current_page" => (int)$page,
                     "last_page" => $total_pages
                 ]
             ]);
@@ -245,6 +208,7 @@ class StudentAPI
             ]);
         }
     }
+    
     private function isStudentEligible($studentSubjects, $course) {
         $gradePoints = ['A' => 5, 'B' => 4, 'C' => 3, 'D' => 2, 'E' => 1];
         $studentPoints = 0;
@@ -252,7 +216,7 @@ class StudentAPI
         $matchScore = 0;
         
         foreach ($studentSubjects as $subject) {
-            $studentPoints += $gradePoints[$subject['grade']] ?? 0;
+            $studentPoints += $gradePoints[$subject['grade']];
             $studentSubjectList[$subject['subject']] = $subject['grade'];
         }
     
@@ -261,27 +225,20 @@ class StudentAPI
         }
     
         $allRequirementsMet = true;
-        $specificRequirementsMet = 0;
-        $totalRequirements = 0;
-    
+        
         if ($course['requirements']) {
-            $requirements = explode(',', $course['requirements']);
-            $totalRequirements = count($requirements);
-            
-            foreach ($requirements as $req) {
+            foreach (explode(',', $course['requirements']) as $req) {
                 [$requiredSubject, $minGrade] = explode(':', $req);
-                $studentGrade = $studentSubjectList[$requiredSubject] ?? null;
+                if (!isset($studentSubjectList[$requiredSubject])) {
+                    $allRequirementsMet = false;
+                    continue;
+                }
                 
-                if ($studentGrade) {
-                    $studentGradeValue = $gradePoints[$studentGrade] ?? 0;
-                    $minGradeValue = $gradePoints[$minGrade] ?? 0;
-                    
-                    if ($studentGradeValue >= $minGradeValue) {
-                        $specificRequirementsMet++;
-                        $matchScore += ($studentGradeValue - $minGradeValue + 1);
-                    } else {
-                        $allRequirementsMet = false;
-                    }
+                $studentGradeValue = $gradePoints[$studentSubjectList[$requiredSubject]];
+                $minGradeValue = $gradePoints[$minGrade];
+                
+                if ($studentGradeValue >= $minGradeValue) {
+                    $matchScore += ($studentGradeValue - $minGradeValue + 1);
                 } else {
                     $allRequirementsMet = false;
                 }
@@ -293,6 +250,7 @@ class StudentAPI
             'match_score' => $matchScore
         ];
     }
+
     // private function isStudentEligible($studentSubjects, $course, $filter = 'default')
     // {
     //     $gradePoints = ['A' => 5, 'B' => 4, 'C' => 3, 'D' => 2, 'E' => 1];
