@@ -13,16 +13,13 @@ try {
     $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Get pagination parameters
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $perPage = isset($_GET['per_page']) ? (int)$_GET['per_page'] : 6;
     $offset = ($page - 1) * $perPage;
 
-    // Count total records
     $countStmt = $pdo->query("SELECT COUNT(*) FROM Courses");
     $total = $countStmt->fetchColumn();
 
-    // Get paginated data
     $stmt = $pdo->prepare("
         SELECT 
             u.universityAbbr, u.universityName as university,

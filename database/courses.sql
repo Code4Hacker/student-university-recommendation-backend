@@ -16,10 +16,12 @@ CREATE TABLE IF NOT EXISTS Colleges (
 );
 
 CREATE TABLE IF NOT EXISTS Courses (
-    courseAbbr VARCHAR(100) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    courseAbbr VARCHAR(100) UNIQUE,
     courseName VARCHAR(255) NOT NULL,
     collegeAbbr VARCHAR(10),
     minimum_points INT,
+    deleted BOOLEAN DEFAULT false,
     grade_scale VARCHAR(255),
     FOREIGN KEY (collegeAbbr) REFERENCES Colleges(collegeAbbr)
 );

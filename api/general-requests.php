@@ -130,20 +130,23 @@ class StudentAPI
     
             $courseQuery = "SELECT 
             c.courseAbbr,
+            c.id,
             c.courseName,
             c.collegeAbbr,
             c.minimum_points,
             c.grade_scale,
+            c.deleted,
             u.universityAbbr,
             u.universityName,
             GROUP_CONCAT(DISTINCT CONCAT(rc.combination_short, ':', rc.combination_long)) as combinations,
             GROUP_CONCAT(DISTINCT CONCAT(sr.subject, ':', sr.grade)) as requirements
-            FROM Courses c
+            FROM Courses c 
             JOIN Colleges cl ON c.collegeAbbr = cl.collegeAbbr
             JOIN Universities u ON cl.universityAbbr = u.universityAbbr
             LEFT JOIN RequiredCombinations rc ON c.courseAbbr = rc.courseAbbr
             LEFT JOIN SpecificRequirements sr ON c.courseAbbr = sr.courseAbbr
-            GROUP BY c.courseAbbr
+            WHERE c.deleted = 0
+            GROUP BY c.courseAbbr ORDER BY c.id DESC
             LIMIT :limit OFFSET :offset";
             $courseStmt = $this->db->prepare($courseQuery);
             $courseStmt->bindValue(':limit', (int)$per_page, PDO::PARAM_INT);
