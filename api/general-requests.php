@@ -114,104 +114,215 @@ class StudentAPI
             ]);
         }
     }
+    // public function getEligibleCourses($student_id, $filter = 'default', $page = 1, $per_page = 10) {
+    //     try {
+    //         $offset = ($page - 1) * $per_page;
+    
+    //         $subjectQuery = "SELECT subject, grade FROM StudentSubjects WHERE student_id = :student_id";
+    //         $subjectStmt = $this->db->prepare($subjectQuery);
+    //         $subjectStmt->execute([':student_id' => $student_id]);
+    //         $studentSubjects = $subjectStmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    //         $countQuery = "SELECT COUNT(*) as total FROM Courses";
+    //         $countStmt = $this->db->prepare($countQuery);
+    //         $countStmt->execute();
+    //         $totalCourses = $countStmt->fetch(PDO::FETCH_ASSOC)['total'];
+    
+    //         $courseQuery = "SELECT 
+    //         c.courseAbbr,
+    //         c.id,
+    //         c.courseName,
+    //         c.collegeAbbr,
+    //         c.minimum_points,
+    //         c.grade_scale,
+    //         c.deleted,
+    //         u.universityAbbr,
+    //         u.universityName,
+    //         GROUP_CONCAT(DISTINCT CONCAT(rc.combination_short, ':', rc.combination_long)) as combinations,
+    //         GROUP_CONCAT(DISTINCT CONCAT(sr.subject, ':', sr.grade)) as requirements
+    //         FROM Courses c 
+    //         JOIN Colleges cl ON c.collegeAbbr = cl.collegeAbbr
+    //         JOIN Universities u ON cl.universityAbbr = u.universityAbbr
+    //         LEFT JOIN RequiredCombinations rc ON c.courseAbbr = rc.courseAbbr
+    //         LEFT JOIN SpecificRequirements sr ON c.courseAbbr = sr.courseAbbr
+    //         WHERE c.deleted = 0
+    //         GROUP BY c.courseAbbr ORDER BY c.id DESC
+    //         LIMIT :limit OFFSET :offset";
+    //         $courseStmt = $this->db->prepare($courseQuery);
+    //         $courseStmt->bindValue(':limit', (int)$per_page, PDO::PARAM_INT);
+    //         $courseStmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+    //         $courseStmt->execute();
+    //         $courses = $courseStmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    //         $resultCourses = [];
+    //         foreach ($courses as $course) {
+    //             $eligibility = $this->isStudentEligible($studentSubjects, $course);
+                
+    //             $combinations = [];
+    //             if ($course['combinations']) {
+    //                 foreach (explode(',', $course['combinations']) as $comb) {
+    //                     [$short, $long] = explode(':', $comb);
+    //                     $combinations[] = ['short' => $short, 'long' => $long];
+    //                 }
+    //             }
+    
+    //             $requirements = [];
+    //             if ($course['requirements']) {
+    //                 foreach (explode(',', $course['requirements']) as $req) {
+    //                     [$subject, $grade] = explode(':', $req);
+    //                     $requirements[] = ['subject' => $subject, 'grade' => $grade];
+    //                 }
+    //             }
+    
+    //             $courseData = [
+    //                 'universityAbbr' => $course['universityAbbr'],
+    //                 'university' => $course['universityName'],
+    //                 'collegeAbbr' => $course['collegeAbbr'],
+    //                 'courseAbbr' => $course['courseAbbr'],
+    //                 'course' => $course['courseName'],
+    //                 'required_combinations' => $combinations,
+    //                 'minimum_points' => $course['minimum_points'],
+    //                 'specific_requirements' => $requirements,
+    //                 'grade_scale' => $course['grade_scale'],
+    //                 'eligible' => $eligibility['eligible'],
+    //                 'match_score' => $eligibility['match_score']
+    //             ];
+    
+    //             if ($filter === 'grades' && !$eligibility['eligible']) continue;
+                
+    //             $resultCourses[] = $courseData;
+    //         }
+    
+    //         $total_pages = ceil($totalCourses / $per_page);
+    //         return json_encode([
+    //             "success" => true,
+    //             "courses" => $resultCourses,
+    //             "pagination" => [
+    //                 "total" => (int)$totalCourses,
+    //                 "per_page" => (int)$per_page,
+    //                 "current_page" => (int)$page,
+    //                 "last_page" => $total_pages
+    //             ]
+    //         ]);
+    //     } catch (Exception $e) {
+    //         return json_encode([
+    //             "success" => false,
+    //             "error" => "Failed to fetch courses: " . $e->getMessage()
+    //         ]);
+    //     }
+    // }
+    
     public function getEligibleCourses($student_id, $filter = 'default', $page = 1, $per_page = 10) {
-        try {
-            $offset = ($page - 1) * $per_page;
-    
-            $subjectQuery = "SELECT subject, grade FROM StudentSubjects WHERE student_id = :student_id";
-            $subjectStmt = $this->db->prepare($subjectQuery);
-            $subjectStmt->execute([':student_id' => $student_id]);
-            $studentSubjects = $subjectStmt->fetchAll(PDO::FETCH_ASSOC);
-    
-            $countQuery = "SELECT COUNT(*) as total FROM Courses";
-            $countStmt = $this->db->prepare($countQuery);
-            $countStmt->execute();
-            $totalCourses = $countStmt->fetch(PDO::FETCH_ASSOC)['total'];
-    
-            $courseQuery = "SELECT 
-            c.courseAbbr,
-            c.id,
-            c.courseName,
-            c.collegeAbbr,
-            c.minimum_points,
-            c.grade_scale,
-            c.deleted,
-            u.universityAbbr,
-            u.universityName,
-            GROUP_CONCAT(DISTINCT CONCAT(rc.combination_short, ':', rc.combination_long)) as combinations,
-            GROUP_CONCAT(DISTINCT CONCAT(sr.subject, ':', sr.grade)) as requirements
-            FROM Courses c 
-            JOIN Colleges cl ON c.collegeAbbr = cl.collegeAbbr
-            JOIN Universities u ON cl.universityAbbr = u.universityAbbr
-            LEFT JOIN RequiredCombinations rc ON c.courseAbbr = rc.courseAbbr
-            LEFT JOIN SpecificRequirements sr ON c.courseAbbr = sr.courseAbbr
-            WHERE c.deleted = 0
-            GROUP BY c.courseAbbr ORDER BY c.id DESC
-            LIMIT :limit OFFSET :offset";
-            $courseStmt = $this->db->prepare($courseQuery);
-            $courseStmt->bindValue(':limit', (int)$per_page, PDO::PARAM_INT);
-            $courseStmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
-            $courseStmt->execute();
-            $courses = $courseStmt->fetchAll(PDO::FETCH_ASSOC);
-    
-            $resultCourses = [];
-            foreach ($courses as $course) {
-                $eligibility = $this->isStudentEligible($studentSubjects, $course);
-                
-                $combinations = [];
-                if ($course['combinations']) {
-                    foreach (explode(',', $course['combinations']) as $comb) {
-                        [$short, $long] = explode(':', $comb);
-                        $combinations[] = ['short' => $short, 'long' => $long];
-                    }
-                }
-    
-                $requirements = [];
-                if ($course['requirements']) {
-                    foreach (explode(',', $course['requirements']) as $req) {
-                        [$subject, $grade] = explode(':', $req);
-                        $requirements[] = ['subject' => $subject, 'grade' => $grade];
-                    }
-                }
-    
-                $courseData = [
-                    'universityAbbr' => $course['universityAbbr'],
-                    'university' => $course['universityName'],
-                    'collegeAbbr' => $course['collegeAbbr'],
-                    'courseAbbr' => $course['courseAbbr'],
-                    'course' => $course['courseName'],
-                    'required_combinations' => $combinations,
-                    'minimum_points' => $course['minimum_points'],
-                    'specific_requirements' => $requirements,
-                    'grade_scale' => $course['grade_scale'],
-                    'eligible' => $eligibility['eligible'],
-                    'match_score' => $eligibility['match_score']
-                ];
-    
-                if ($filter === 'grades' && !$eligibility['eligible']) continue;
-                
-                $resultCourses[] = $courseData;
+    try {
+        $offset = ($page - 1) * $per_page;
+
+        $subjectQuery = "SELECT subject, grade FROM StudentSubjects WHERE student_id = :student_id";
+        $subjectStmt = $this->db->prepare($subjectQuery);
+        $subjectStmt->execute([':student_id' => $student_id]);
+        $studentSubjects = $subjectStmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Base query with WHERE clause for deleted courses
+        $baseQuery = "FROM Courses c 
+                     JOIN Colleges cl ON c.collegeAbbr = cl.collegeAbbr
+                     JOIN Universities u ON cl.universityAbbr = u.universityAbbr
+                     LEFT JOIN RequiredCombinations rc ON c.courseAbbr = rc.courseAbbr
+                     LEFT JOIN SpecificRequirements sr ON c.courseAbbr = sr.courseAbbr
+                     WHERE c.deleted = 0";
+
+        // Count total filtered courses
+        $countQuery = "SELECT COUNT(DISTINCT c.courseAbbr) as total $baseQuery";
+        $countStmt = $this->db->prepare($countQuery);
+        $countStmt->execute();
+        $totalCourses = $countStmt->fetch(PDO::FETCH_ASSOC)['total'];
+
+        // Get paginated courses
+        $courseQuery = "SELECT 
+                       c.courseAbbr,
+                       c.id,
+                       c.courseName,
+                       c.collegeAbbr,
+                       c.minimum_points,
+                       c.grade_scale,
+                       u.universityAbbr,
+                       u.universityName,
+                       GROUP_CONCAT(DISTINCT CONCAT(rc.combination_short, ':', rc.combination_long)) as combinations,
+                       GROUP_CONCAT(DISTINCT CONCAT(sr.subject, ':', sr.grade)) as requirements
+                       $baseQuery
+                       GROUP BY c.courseAbbr 
+                       ORDER BY c.id DESC
+                       LIMIT :limit OFFSET :offset";
+
+        $courseStmt = $this->db->prepare($courseQuery);
+        $courseStmt->bindValue(':limit', (int)$per_page, PDO::PARAM_INT);
+        $courseStmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $courseStmt->execute();
+        $courses = $courseStmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $resultCourses = [];
+        foreach ($courses as $course) {
+            $eligibility = $this->isStudentEligible($studentSubjects, $course);
+            
+            // Skip if filtering by eligibility and course is not eligible
+            if ($filter === 'grades' && !$eligibility['eligible']) {
+                continue;
             }
-    
-            $total_pages = ceil($totalCourses / $per_page);
-            return json_encode([
-                "success" => true,
-                "courses" => $resultCourses,
-                "pagination" => [
-                    "total" => (int)$totalCourses,
-                    "per_page" => (int)$per_page,
-                    "current_page" => (int)$page,
-                    "last_page" => $total_pages
-                ]
-            ]);
-        } catch (Exception $e) {
-            return json_encode([
-                "success" => false,
-                "error" => "Failed to fetch courses: " . $e->getMessage()
-            ]);
+
+            $combinations = [];
+            if ($course['combinations']) {
+                foreach (explode(',', $course['combinations']) as $comb) {
+                    [$short, $long] = explode(':', $comb);
+                    $combinations[] = ['short' => $short, 'long' => $long];
+                }
+            }
+
+            $requirements = [];
+            if ($course['requirements']) {
+                foreach (explode(',', $course['requirements']) as $req) {
+                    [$subject, $grade] = explode(':', $req);
+                    $requirements[] = ['subject' => $subject, 'grade' => $grade];
+                }
+            }
+
+            $resultCourses[] = [
+                'universityAbbr' => $course['universityAbbr'],
+                'university' => $course['universityName'],
+                'collegeAbbr' => $course['collegeAbbr'],
+                'courseAbbr' => $course['courseAbbr'],
+                'course' => $course['courseName'],
+                'required_combinations' => $combinations,
+                'minimum_points' => $course['minimum_points'],
+                'specific_requirements' => $requirements,
+                'grade_scale' => $course['grade_scale'],
+                'eligible' => $eligibility['eligible'],
+                'match_score' => $eligibility['match_score']
+            ];
         }
+
+        // For grade filter, we need to count eligible courses
+        if ($filter === 'grades') {
+            $eligibleCount = count($resultCourses);
+            $total_pages = ceil($eligibleCount / $per_page);
+        } else {
+            $total_pages = ceil($totalCourses / $per_page);
+        }
+
+        return json_encode([
+            "success" => true,
+            "courses" => $resultCourses,
+            "pagination" => [
+                "total" => $filter === 'grades' ? $eligibleCount : (int)$totalCourses,
+                "per_page" => (int)$per_page,
+                "current_page" => (int)$page,
+                "last_page" => $total_pages
+            ]
+        ]);
+    } catch (Exception $e) {
+        return json_encode([
+            "success" => false,
+            "error" => "Failed to fetch courses: " . $e->getMessage()
+        ]);
     }
-    
+}
     private function isStudentEligible($studentSubjects, $course) {
         $gradePoints = ['A' => 5, 'B' => 4, 'C' => 3, 'D' => 2, 'E' => 1];
         $studentPoints = 0;
